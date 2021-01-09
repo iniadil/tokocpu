@@ -1,0 +1,102 @@
+/* FONTS */
+@font-face {
+  font-family: "Poppins";
+  src: url("../font/Poppins-Regular.ttf") format("truetype"); /* Legacy iOS */
+}
+@font-face {
+  font-family: "Poppins-Bold";
+  src: url("../font/Poppins-Bold.ttf") format("truetype"); /* Legacy iOS */
+}
+@font-face {
+  font-family: "Poppins-Medium";
+  src: url("../font/Poppins-Medium.ttf") format("truetype"); /* Legacy iOS */
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* MENU */
+.avatar .avatar_img {
+  width: 50px;
+  height: 50px;
+  background-color: #eaeaea;
+  border-radius: 50%;
+  margin-bottom: 0;
+}
+
+.navbar {
+  background-color: #12130f;
+}
+
+b {
+  color: #317b22;
+}
+
+/* BANNER */
+.banner {
+  width: 100%;
+  height: 200px;
+  background-image: url(../img/banner-1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* PRODUK */
+#produk .produk_detail {
+  color: #333333;
+  text-decoration: none;
+}
+#produk .img_produk {
+  width: 100%;
+  height: 300px;
+  background-image: url(../img/produk/contoh_produk.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#produk .title_produk {
+  font-weight: bold;
+}
+
+#produk .sub_produk {
+  font-size: 14px;
+  color: #c0bcb5;
+}
+
+#produk .harga_produk {
+  font-size: 20px;
+  font-weight: 800;
+  padding-top: 3px;
+}
+
+#footer {
+  background-color: #f8f9fa;
+  display: block;
+  padding: 3rem 0;
+}
+
+#footer ul.sosmed {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+  text-align: left;
+}
+#footer ul.sosmed li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+#footer ul.sosmed li a {
+  color: #333333;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+#footer .footer_content {
+  color: #4d4d4d;
+}
+#footer .footer_content b {
+  color: #333333;
+}
