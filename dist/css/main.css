@@ -47,11 +47,17 @@ b {
 #produk .produk_detail {
   color: #333333;
   text-decoration: none;
+  opacity: 1;
+  transition: opacity, 0.2s ease-in-out;
+  -webkit-transition: opacity, 0.2s ease-in-out;
+  -moz-transition: opacity, 0.2s ease-in-out;
+}
+#produk .produk_detail:hover {
+  opacity: 0.5;
 }
 #produk .img_produk {
   width: 100%;
   height: 300px;
-  background-image: url(../img/produk/contoh_produk.png);
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -71,6 +77,37 @@ b {
   padding-top: 3px;
 }
 
+/* PRODUK DETAIL */
+#produk_detail .img_detail {
+  width: 100%;
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#produk_detail .harga_detail {
+  font-size: 45px;
+  font-weight: 800;
+  color: #317b22;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+.inline-group {
+  max-width: 9rem;
+  padding: 0.5rem;
+}
+
+.inline-group .form-control {
+  text-align: right;
+}
+
+.form-control[type="number"]::-webkit-inner-spin-button,
+.form-control[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* FOOTER */
 #footer {
   background-color: #f8f9fa;
   display: block;
