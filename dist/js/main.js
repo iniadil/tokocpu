@@ -5,3 +5,12 @@ $(".btn-plus, .btn-minus").on("click", function (e) {
     input[0][isNegative ? "stepDown" : "stepUp"]();
   }
 });
+
+$("#checkout").on("click", function (e) {
+  $("#loader").toggleClass("d-none");
+  form = $("#formCheckout");
+  setTimeout(function () {
+    form.submit();
+  }, 5000);
+  e.preventDefault();
+});

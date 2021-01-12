@@ -106,6 +106,11 @@ th {
                                 <?= $row['garansi'] ?>
                             </td>
                         </tr>
+                        <tr>
+                            <td colspan="2" class="text-center">
+                                <img src="../dist/img/produk/<?= $row['gambar'] ?>" class="img-fluid">
+                            </td>
+                        </tr>
                     </table>
                 </div>
             </div>

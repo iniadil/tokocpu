@@ -1,3 +1,4 @@
+<?php require_once 'koneksi.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +12,13 @@
 </head>
 
 <body>
+    <div id="loader" class="d-none">
+        <img src="./dist/img/logo.png" alt="" class="logo justify-content-center">
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
     <div id="app">
         <?php
         include_once 'file/menu.php';
@@ -18,6 +26,14 @@
         if (isset($_GET['url'])) {
           if ($_GET['url'] == 'detail') {
             $url = 'detail.php';
+          } else if ($_GET['url'] == 'login') {
+            $url = 'login.php';
+          } else if ($_GET['url'] == 'register') {
+            $url = 'register.php';
+          } else if ($_GET['url'] == 'logout') {
+            $url = 'logout.php';
+          } else if ($_GET['url'] == 'invoices') {
+            $url = 'invoices.php';
           }
         }
 

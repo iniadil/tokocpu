@@ -14,25 +14,24 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="./">Beranda <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Kategori
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">PC Gaming</a>
-                        <a class="dropdown-item" href="#">PC Server</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Elektronik Lainnya</a>
-                    </div>
+                <?php if (isset($_SESSION['tokocpu_client'])) { ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Halo
+                        <b><?= $_SESSION['tokocpu_client_name']." ".$_SESSION['tokocpu_client_id']; ?></b></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Invoice Saya</a>
+                    <a class="nav-link" href="?url=invoices">Invoice Saya</a>
                 </li>
+                <?php } ?>
             </ul>
             <div class="avatar">
                 <img src="./dist/img/avatar.png" alt="" class="avatar_img" width="23">
-                <a href="#" class="text-light"> Logout</a>
+                <?php if (isset($_SESSION['tokocpu_client'])) { ?>
+                <a href="?url=logout" class="text-light"> Logout</a>
+                <?php } else { ?>
+                <a href="?url=login" class="text-light"> Login</a>
+                <a href="?url=register" class="text-light"> Register</a>
+                <?php } ?>
             </div>
         </div>
     </div>

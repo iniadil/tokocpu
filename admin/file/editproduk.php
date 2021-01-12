@@ -22,6 +22,16 @@
         $hardiskssd = $_POST['hardiskssd'];
         $garansi = $_POST['garansi'];
 
+        // MOVE GAMBAR
+        if (file_exists($_FILES['gambar']['tmp_name']) || is_uploaded_file($_FILES['gambar']['tmp_name'])) {
+            $temp = explode(".", $_FILES["gambar"]["name"]);
+            $newfilename = round(microtime(true)) . '.' . end($temp);
+            move_uploaded_file($_FILES["gambar"]["tmp_name"], "../dist/img/produk/" . $newfilename);
+            $gambar = $newfilename;
+        } else {
+            $gambar = $row['gambar'];
+        }
+
         // UPDATE
         $update = $koneksi->query("UPDATE tbproduk SET
                 nama_produk = '$nama_produk',
@@ -36,7 +46,8 @@
                 ram = '$ram',
                 powersupply = '$powersupply',
                 hardiskssd = '$hardiskssd',
-                garansi ='$garansi' 
+                garansi ='$garansi',
+                gambar = '$gambar' 
                 WHERE id_produkdetail = '$id_detail'
             ");
 
@@ -44,10 +55,10 @@
                 // JIKA SUKSES
                 alertWithRedirect('Berhasil merubah produk','?url=produk');
             } else {
-                alertWithRedirect('ada sedikit kesalahan1, coba lagi!','?url=tambahproduk');
+                alertWithRedirect('ada sedikit kesalahan, coba lagi!','?url=tambahproduk');
             }
         } else {
-            alertWithRedirect('ada sedikit kesalahan1, coba lagi!','?url=tambahproduk');
+            alertWithRedirect('ada sedikit kesalahan, coba lagi!','?url=tambahproduk');
         }
     }
 ?>
@@ -58,7 +69,7 @@
             <div class="col-12">
                 <div class="section">
                     <h2 class="title_section">Edit Produk</h2>
-                    <form method="post">
+                    <form method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-6">
                                 <!-- ITEM -->
@@ -148,10 +159,20 @@
                                         value="<?= $row['garansi'] ?>" placeholder="5 Tahun">
                                 </div>
 
+                                <div class="custom-file">
+                                    <label class="custom-file-label" for="gambar">Pilih Gambar</label>
+                                    <input type="file" accept="image/x-png,image/gif,image/jpeg"
+                                        class="custom-file-input" name="gambar" id="gambar">
+                                </div>
+
                                 <div class="form-group mt-3">
                                     <button type="submit" name="submit" class="btn btn-success">Submit</button>
                                     <a href="?url=produk" class="btn btn-info">Kembali</a>
                                 </div>
+                            </div>
+                            <!-- GAMBAR -->
+                            <div class="col-6">
+                                <img src="../dist/img/produk/<?= $row['gambar'] ?>" class="img-fluid" id="previewImg">
                             </div>
                         </div>
                     </form>

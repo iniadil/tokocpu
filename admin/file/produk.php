@@ -35,9 +35,11 @@
                                 <td>
                                     <a href="?url=detailproduk&amp;data=<?=$row['id_produk'] ?>"
                                         class="btn btn-info btn-sm">Lihat Detail</a>
+                                    <a href="?url=stok" class="btn btn-warning btn-sm">Stok</a>
                                     <a href="?url=editproduk&amp;data=<?=$row['id_produk'] ?>"
                                         class="btn btn-primary btn-sm"><i class="fa fa-pencil-alt"></i></a>
-                                    <a href="" onclick="return confirm('yakin ingin menghapus data?')"
+                                    <a href="?url=deleteproduk&amp;data=<?=$row['id_produk'] ?>"
+                                        onclick="return confirm('yakin ingin menghapus data?')"
                                         class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>

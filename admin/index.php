@@ -36,6 +36,18 @@
                 $url = 'detailproduk.php';
             } else if ($_GET['url'] == 'editproduk') {
                 $url = 'editproduk.php';
+            } else if ($_GET['url'] == 'deleteproduk') {
+                $url = 'deleteproduk.php';
+            } else if ($_GET['url'] == 'stok') {
+                $url = 'stok.php';
+            } else if ($_GET['url'] == 'pesananongoing') {
+                $url = 'pesananongoing.php';
+            } else if ($_GET['url'] == 'pesanan') {
+                $url = 'pesanan.php';
+            } else if ($_GET['url'] == 'pesananselesai') {
+                $url = 'pesananselesai.php';
+            } else if ($_GET['url'] == 'client') {
+                $url = 'client.php';
             }
         }
 

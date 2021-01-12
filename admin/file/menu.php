@@ -31,15 +31,18 @@
                         Pesanan
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Pesanan Selesai</a>
-                        <a class="dropdown-item" href="#">Ongoing</a>
-                        <a class="dropdown-item" href="#">Dibatalkan</a>
+                        <a class="dropdown-item" href="?url=pesanan">Daftar Pesanan</a>
+                        <a class="dropdown-item" href="?url=pesananongoing">Ongoing</a>
+                        <a class="dropdown-item" href="?url=pesananselesai">Pesanan Selesai</a>
                     </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?url=client">List Client</a>
                 </li>
             </ul>
             <div class="avatar">
                 <img src="../dist/img/avatar.png" alt="" class="avatar_img" width="23">
-                <a href="#" class="text-dark"> Logout</a>
+                <a href="./logout.php" class="text-dark"> Logout</a>
             </div>
         </div>
     </div>

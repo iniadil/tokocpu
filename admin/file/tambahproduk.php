@@ -28,18 +28,28 @@
         $garansi = $_POST['garansi'];
         $tanggal = date('Y-m-d H:i:s');
 
+        // INPUT GAMBAR
+        if (file_exists($_FILES['gambar']['tmp_name']) || is_uploaded_file($_FILES['gambar']['tmp_name'])) {
+            $temp = explode(".", $_FILES["gambar"]["name"]);
+            $newfilename = round(microtime(true)) . '.' . end($temp);
+            move_uploaded_file($_FILES["gambar"]["tmp_name"], "../dist/img/produk/" . $newfilename);
+            $gambar = $newfilename;
+        } else {
+            $gambar = "contoh_produk.png";
+        }
+
         $input = $koneksi->query("INSERT INTO tbproduk (id_produk,nama_produk,harga,tanggal) VALUES ('$kode_produk','$nama_produk','$harga','$tanggal')");
         if ($input) {
-            $input_detail = $koneksi->query("INSERT INTO tbprodukdetail (id_produkdetail,id_produk,brand,processor,vga,ram,powersupply,hardiskssd,garansi) VALUES ('$id_detail','$kode_produk','$brand','$processor','$vga','$ram','$powersupply','$hardiskssd','$garansi')");
+            $input_detail = $koneksi->query("INSERT INTO tbprodukdetail (id_produkdetail,id_produk,brand,processor,vga,ram,powersupply,hardiskssd,garansi,gambar) VALUES ('$id_detail','$kode_produk','$brand','$processor','$vga','$ram','$powersupply','$hardiskssd','$garansi','$gambar')");
 
             if ($input_detail) {
                 // JIKA SUKSES
                 alertWithRedirect('Berhasil menambah produk','?url=produk');
             } else {
-                alertWithRedirect('ada sedikit kesalahan1, coba lagi!','?url=tambahproduk');
+                alertWithRedirect('ada sedikit kesalahan, coba lagi!','?url=tambahproduk');
             }
         } else {
-            alertWithRedirect('ada sedikit kesalahan2, coba lagi!','?url=tambahproduk');
+            alertWithRedirect('ada sedikit kesalahan, coba lagi!','?url=tambahproduk');
         }
 
     }
@@ -52,7 +62,7 @@
             <div class="col-12">
                 <div class="section">
                     <h2 class="title_section">Tambah Produk</h2>
-                    <form method="post">
+                    <form method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-6">
                                 <!-- ITEM -->
@@ -138,10 +148,21 @@
                                         placeholder="5 Tahun">
                                 </div>
 
+                                <!-- GAMBAR -->
+                                <div class="custom-file">
+                                    <label class="custom-file-label" for="gambar">Pilih Gambar</label>
+                                    <input type="file" accept="image/x-png,image/gif,image/jpeg"
+                                        class="custom-file-input" name="gambar" id="gambar" required>
+                                </div>
+
                                 <div class="form-group mt-3">
                                     <button type="submit" name="submit" class="btn btn-success">Submit</button>
                                     <a href="?url=produk" class="btn btn-info">Kembali</a>
                                 </div>
+                            </div>
+                            <!-- GAMBAR -->
+                            <div class="col-6">
+                                <img src="" class="img-fluid" id="previewImg">
                             </div>
                         </div>
                     </form>
