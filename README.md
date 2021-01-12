@@ -15,4 +15,4 @@ Terimakasih saya ucapkan kepada _Bpk. Fhery Agustin, M.Kom_ karna telah membimbi
 
 ## License
 
-[MIT](https://github.com/iniadil/tokocpu)
+[Project Github](https://github.com/iniadil/tokocpu)
