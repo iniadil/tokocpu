@@ -7,6 +7,8 @@ www.potensi-utama.ac.id
 
 ## Kontribusi
 
+Menggunakan _PHP7_ sebagai bahasa pemograman dan _Mysql 5.7_ sebagai Database.
+
 Menggunakan Third-party _Bootstrap v.4_, _Jquery_, _Fontawesome 5_
 
 ## Thanks
